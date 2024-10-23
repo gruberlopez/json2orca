@@ -1,0 +1,4 @@
+! @@method@@  @@basis@@
+# Synthetic input file derived from Chemoton json output file: @@mongodb@@
+*xyz @@charge@@ @@multiplicity@@
+@@xyz@@

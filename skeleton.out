@@ -1,0 +1,71 @@
+                                 *****************
+                                 * O   R   C   A *
+                                 *****************
+
+           --- An Ab Initio, DFT and Semiempirical electronic structure package ---
+
+                  ######################################################
+                  #                        -***-                       #
+                  #  Department of molecular theory and spectroscopy   #
+                  #              Directorship: Frank Neese             #
+                  #   Max Planck Institute for Bioinorganic Chemistry  #
+                  #                  D-45470 Muelheim/Ruhr             #
+                  #                       Germany                      #
+                  #                                                    #
+                  #                  All rights reserved               #
+                  #                        -***-                       #
+                  ######################################################
+
+
+                         Program Version @@version@@ -  RELEASE  -
+
+================================================================================
+                                       INPUT FILE
+================================================================================
+This is a synthetic output file generated from Chemoton software json file.
+
+NAME = not available
+|  1> ! @@method@@  @@basis@@
+
+  ****END OF INPUT****
+================================================================================
+
+
+
+                       ****************************
+                       * Single Point Calculation *
+                       ****************************
+
+
+---------------------------------
+CARTESIAN COORDINATES (ANGSTROEM)
+---------------------------------
+@@xyz@@
+
+
+------------
+SCF SETTINGS
+------------
+
+General Settings:
+ Total Charge           Charge          ....    @@charge@@
+ Multiplicity           Mult            ....    @@multiplicity@@
+
+
+---------------------
+
+@@solvation@@
+
+---------------------------------
+TOTAL SCF ENERGY
+---------------------------------
+
+Total Energy       :       @@scf_energy@@
+
+
+
+ ******************
+
+
+                             ****ORCA TERMINATED NORMALLY****
+TOTAL RUN TIME: 0 days 0 hours 0 minutes 0 seconds 0 msec
