@@ -16,14 +16,7 @@ All the conversions will automatically be saved in the results folder. Each mole
 
 After running the script, the results folder will be structured as follows:
 
-results/
-    ├── molecule_1/
-    │   ├── input.orca
-    │   └── output.orca
-    ├── molecule_2/
-    │   ├── input.orca
-    │   └── output.orca
-    └── ...
+results/molecule1/[orca.in && orca.out]
 
 Each subdirectory (molecule_1, molecule_2, ...) represents a molecule extracted from the JSON file, and contains:
 - input.orca: The input file for ORCA.
