@@ -1,6 +1,6 @@
 # json2orca Conversion Tool
 
-This tool allows you to convert JSON files into ORCA input and output formats for molecule processing.
+This tool converts JSON files containing Orca-originated data into valid/parseable ORCA input and output formats.
 
 ## Usage
 
@@ -16,11 +16,11 @@ All the conversions will automatically be saved in the results folder. Each mole
 
 After running the script, the results folder will be structured as follows:
 
-results/molecule_XX/[orca.in && orca.out]
+results/molecule_XX/[input.in && output.out]
 
 Each subdirectory (molecule_1, molecule_2, ...) represents a molecule extracted from the JSON file, and contains:
-- input.orca: The input file for ORCA.
-- output.orca: The resulting output file after processing.
+- input.in: The input file for ORCA.
+- output.out: The resulting output file after processing.
 
 ## Requirements
 
