@@ -1,6 +1,6 @@
 # json2orca Conversion Tool
 
-This tool converts JSON files containing Orca-originated data into valid/parseable ORCA input and output formats.
+This tool converts JSON files containing ORCA-originated data into valid/parseable ORCA input and output formats.
 
 ## Usage
 
@@ -16,20 +16,19 @@ All the conversions will automatically be saved in the results folder. Each mole
 
 After running the script, the results folder will be structured as follows:
 
-results/molecule_XX/[input.in && output.out]
+results/XX/[input.in && output.out]
 
-Each subdirectory (molecule_1, molecule_2, ...) represents a molecule extracted from the JSON file, and contains:
-- input.in: The input file for ORCA.
+Each subdirectory represents a molecule extracted from the JSON file, and contains:
+- input.in: The ORCA input file.
 - output.out: The resulting output file after processing.
 
 ## Requirements
 
-- Bash
-- ORCA software
+- A Linux Bash
 
 ## How to Run
 
-1. Place the JSON file that you want to convert in the same directory as the json2orca.sh script.
+1. Place the JSON file you want to convert in the same directory as the json2orca.sh script.
 2. Execute the script as shown in the example above.
 3. The converted files will be available in the results folder.
 
@@ -37,9 +36,8 @@ Each subdirectory (molecule_1, molecule_2, ...) represents a molecule extracted 
 
 - Ensure that the JSON file is properly formatted for this conversion script.
 - ORCA software must be installed and available in your system's PATH.
-- This ORCAs are compatible with [ioChem-BD](https://www.iochem-bd.com/)
-
+- These ORCAs are compatible with [ioChem-BD](https://www.iochem-bd.com/) software.
 
 ### Contact
 
-For any issues or questions, feel free to contact the developer or create an issue in the repository.
+If you have any issues or questions, please contact the developer or create an issue in the repository.
