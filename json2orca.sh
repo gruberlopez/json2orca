@@ -22,9 +22,9 @@ xyz_ang=
 xyz_to_angstroms () {
   xyz_ang=''  
   for coord in $(echo "$1" | tr ',' ' '); do    
-    coord=$(python -c "print(f'{$coord:1.7f}')")
+    coord=$(python3 -c "print(f'{$coord:1.7f}')")
     coord_ang=$(echo "$coord * 0.529177" | bc)
-    coord_ang=$(python -c "print(f'{$coord_ang:1.7f}')")        
+    coord_ang=$(python3 -c "print(f'{$coord_ang:1.7f}')")        
     xyz_ang+=$coord_ang'   '
   done    
 }
@@ -87,10 +87,16 @@ get_basis () {
   sed  -i "s/@@basis@@/$basis/g" "$1"
 }
 
+get_solvation_inp() {
+  solvation_inp=$(echo $2 | jq -r ".solvation")
+  solvent_inp=$(echo $2 | jq -r ".solvent")
+  sed  -i "s/@@solvation@@/$solvation_inp/g" "$1"
+  sed  -i "s/@@solvent@@/$solvent_inp/g" "$1"
+    }
+
 get_solvent() {
    solvent=$(echo "$2" | jq -r ".solvent")
    solvation=$(echo "$2" | jq -r ".solvation")
-
    solvation="${solvation^^}"
    info=${cpcm[${solvent^^}]}
    clean_info=$(echo "$info" | sed 's|//| |g')
@@ -116,7 +122,7 @@ get_solvent() {
       solvationFinal+="Refrac                                       ...  $refract  \n\n"
       solvationFinal+="Overall time for CPCM initialization         ...          0.0s\n"
 
-        sed -i "s/@@solvation@@/$solvationFinal/g" "$1"
+      sed -i "s/@@solvation@@/$solvationFinal/g" "$1"
 
    fi
 }
@@ -151,6 +157,7 @@ set_ArrayCPCM
 get_input() {
   get_method "$1" "$2"
   get_basis "$1" "$2"
+  get_solvation_inp "$1" "$2"
   get_xyz "$1" "$2"
   get_charge "$1" "$2"
   get_multiplicity "$1" "$2"
@@ -162,10 +169,14 @@ while [ $index -le "$total_compounds" ]; do
     calc_json=$(jq -r ".\"$((index))\"" "$json_file")    
     crn_id=$(echo $calc_json | jq -r ".crn_id")    
     
-    mkdir -p "./results/$index/"
+    #mkdir -p "./results/$index/"
+    mkdir -p "./results_eth/$crn_id/"
 
-    input="./results/$index/$crn_id.in"
-    output="./results/$index/$crn_id.out"
+    input="./results_eth/$crn_id/$crn_id.in"
+    output="./results_eth/$crn_id/$crn_id.out"
+
+    #input="./results/$index/$crn_id.in"
+    #output="./results/$index/$crn_id.out"
 
     cp skeleton.in "$input"
     cp skeleton.out "$output"
