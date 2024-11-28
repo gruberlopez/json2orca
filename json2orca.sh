@@ -169,14 +169,9 @@ while [ $index -le "$total_compounds" ]; do
     calc_json=$(jq -r ".\"$((index))\"" "$json_file")    
     crn_id=$(echo $calc_json | jq -r ".crn_id")    
     
-    #mkdir -p "./results/$index/"
-    mkdir -p "./results_eth/$crn_id/"
-
-    input="./results_eth/$crn_id/$crn_id.in"
-    output="./results_eth/$crn_id/$crn_id.out"
-
-    #input="./results/$index/$crn_id.in"
-    #output="./results/$index/$crn_id.out"
+    mkdir -p "./results/$index/"
+    input="./results/$index/$crn_id.in"
+    output="./results/$index/$crn_id.out"
 
     cp skeleton.in "$input"
     cp skeleton.out "$output"
